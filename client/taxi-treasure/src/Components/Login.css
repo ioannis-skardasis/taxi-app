@@ -1,0 +1,40 @@
+body,
+html {
+  overflow: hidden;
+}
+
+.formcontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffd700;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border: 1px solid black;
+}
+
+h1 {
+  margin: 0 0 20px 0;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px;
+  background-color: yellow;
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  color: blue;
+}

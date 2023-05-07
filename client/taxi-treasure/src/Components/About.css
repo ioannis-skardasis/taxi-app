@@ -1,0 +1,47 @@
+body {
+  background-color: #ffd700;
+}
+
+.taxiSign1 {
+  height: 200px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+  padding-top: 20px;
+  margin-right: 250px;
+}
+
+.movingTaxi {
+  height: 200px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+  padding-top: 20px;
+  margin-left: 250px;
+}
+
+@media screen and (max-width: 768px) {
+  .taxiSign1 {
+    height: 150px;
+  }
+
+  .taxiSign2 {
+    height: 150px;
+  }
+
+  .movingTaxi {
+    height: 75px;
+  }
+
+  .d-flex.flex-column.justify-content-center {
+    align-items: center;
+  }
+}
+
+p {
+  text-align: justify;
+  text-justify: inter-word;
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
