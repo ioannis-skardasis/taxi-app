@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import Logo from "../Components/icons/taxi.png";
 import Treasure from "../Components/icons/treasure-chest.png";
+import UserItems from "./UserItems";
 import "./Navbar.css";
 
 function Navbar(props) {
@@ -58,7 +59,9 @@ function Navbar(props) {
             <Link to='/addItem'>
               <FaPlus />
             </Link>
-            <Link to='#'>{decoded ? decoded.username : null}</Link>
+            <Link to="/UserItems">
+              {decoded ? decoded.username : null}
+            </Link>
             <Link onClick={logout} to='/'>
               <FaSignOutAlt />
             </Link>
@@ -71,7 +74,7 @@ function Navbar(props) {
             <Link to='/signup'>Signup</Link>
           </>
         )}
-      </nav>
+      </nav>      
     </div>
   );
 }
