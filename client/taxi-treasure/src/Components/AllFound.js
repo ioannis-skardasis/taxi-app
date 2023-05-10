@@ -39,8 +39,11 @@ function AllFound() {
               <div className="col-lg-4 col-md-6 col-sm-12" key={foundItem._id}>
                 <MDBCard>
                   <MDBCardBody>
-                    <MDBCardTitle>{foundItem.name}</MDBCardTitle>
+                    <MDBCardTitle>{foundItem.item}</MDBCardTitle>
                     <MDBCardText>{foundItem.description}</MDBCardText>
+                    <MDBCardText>Location: {foundItem.location}</MDBCardText>
+                    <MDBCardText>Date: {foundItem.date}</MDBCardText>
+                    <MDBCardText>Car Brand: {foundItem.carBrand}</MDBCardText>
                   </MDBCardBody>
                 </MDBCard>
               </div>

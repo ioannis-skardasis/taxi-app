@@ -4,21 +4,27 @@ import { MDBInput, MDBBtn } from "mdb-react-ui-kit";
 import "./AddItem.css";
 
 function AddItem() {
-  const [name, setName] = useState("");
+  const [item, setItem] = useState("");
   const [description, setDescription] = useState("");
+  const [location, setLocation] = useState("");
+  const [date, setDate] = useState("");
+  const [carBrand, setCarBrand] = useState("");
   const [status, setStatus] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    const itemData = { name, description, status };
+    const itemData = { item, description, location, date, carBrand,status };
     axios
       .post("http://localhost:8000/addItem", itemData, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       })
       .then((response) => {
         console.log(response.data);
-        setName("");
+        setItem("");
         setDescription("");
+        setLocation("");
+        setDate("");
+        setCarBrand("");
         setStatus("");
       })
       .catch((error) => {
@@ -31,12 +37,12 @@ function AddItem() {
       <form className="form" onSubmit={handleSubmit}>
         <h1>Add Item</h1>
         <div className="form-group">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="item">Item</label>
           <MDBInput
             type="text"
             id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={item}
+            onChange={(e) => setItem(e.target.value)}
           />
         </div>
         <div className="form-group">
@@ -47,6 +53,33 @@ function AddItem() {
             rows="4"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="location">Location</label>
+          <MDBInput
+            type="text"
+            id="location"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="date">Date</label>
+          <MDBInput
+            type="date"
+            id="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="carBrand">Car Brand</label>
+          <MDBInput
+            type="text"
+            id="carBrand"
+            value={carBrand}
+            onChange={(e) => setCarBrand(e.target.value)}
           />
         </div>
         <div className="form-group">
@@ -66,6 +99,7 @@ function AddItem() {
       </form>
     </div>
   );
+  
 }
 
 export default AddItem;

@@ -12,13 +12,25 @@ const userSchema = new Schema({
 
 const itemSchema = new Schema(
   {
-    name: {
+    item: {
       type: String,
       required: true,
     },
     description: {
       type: String,
       required: true,
+    },
+    location: {
+      type: String,
+      required: true,
+    },
+    date: {
+      type: Date,
+      required: false,
+    },
+    carBrand: {
+      type: String,
+      required: false,
     },
     status: {
       type: String,

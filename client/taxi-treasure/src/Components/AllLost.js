@@ -37,13 +37,16 @@ function AllLost() {
           <div className="row">
             {lostItems.map((lostItem) => (
               <div className="col-lg-4 col-md-6 col-sm-12" key={lostItem._id}>
-                <MDBCard>
-                  <MDBCardBody>
-                    <MDBCardTitle>{lostItem.name}</MDBCardTitle>
-                    <MDBCardText>{lostItem.description}</MDBCardText>
-                  </MDBCardBody>
-                </MDBCard>
-              </div>
+              <MDBCard>
+                <MDBCardBody>
+                  <MDBCardTitle>{lostItem.item}</MDBCardTitle>
+                  <MDBCardText>{lostItem.description}</MDBCardText>
+                  <MDBCardText>Location: {lostItem.location}</MDBCardText>
+                  <MDBCardText>Date: {lostItem.date}</MDBCardText>
+                  <MDBCardText>Car Brand: {lostItem.carBrand}</MDBCardText>
+                </MDBCardBody>
+              </MDBCard>
+            </div>
             ))}
           </div>
         </MDBContainer>

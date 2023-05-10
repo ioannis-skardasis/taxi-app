@@ -58,34 +58,51 @@ function UserItems() {
   return (
     <div>
       <h1>{decoded ? decoded.username : null}'s Items</h1>
-      {lostItems.length > 0 && (
+      {(lostItems.length > 0 || foundItems.length > 0) ? (
         <>
-          <h2>Lost Items</h2>
-          <ul>
-            {lostItems.map(item => (
-              <li key={item._id}>
-                {item.name}
-                <button onClick={() => handleDeleteLostItem(item._id)}>Delete</button>
-              </li>
-            ))}
-          </ul>
+          {lostItems.length > 0 && (
+            <>
+              <h2>Lost Items</h2>
+              <ul>
+                {lostItems.map(item => (
+                  <li key={item._id}>
+                    <div>
+                      <h3>{item.item}</h3>
+                      <p>Description: {item.description}</p>
+                      <p>Location: {item.location}</p>
+                      {item.date && <p>Date: {new Date(item.date).toLocaleDateString()}</p>}
+                      <button onClick={() => handleDeleteLostItem(item._id)}>Delete</button>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+          {foundItems.length > 0 && (
+            <>
+              <h2>Found Items</h2>
+              <ul>
+                {foundItems.map(item => (
+                  <li key={item._id}>
+                    <div>
+                      <h3>{item.item}</h3>
+                      <p>Description: {item.description}</p>
+                      <p>Location: {item.location}</p>
+                      {item.date && <p>Date: {new Date(item.date).toLocaleDateString()}</p>}
+                      <button onClick={() => handleDeleteFoundItem(item._id)}>Delete</button>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
         </>
-      )}
-      {foundItems.length > 0 && (
-        <>
-          <h2>Found Items</h2>
-          <ul>
-            {foundItems.map(item => (
-              <li key={item._id}>
-                {item.name}
-                <button onClick={() => handleDeleteFoundItem(item._id)}>Delete</button>
-              </li>
-            ))}
-          </ul>
-        </>
+      ) : (
+        <p>There are no Lost or Found items in our Database published by you.</p>
       )}
     </div>
   );
+  
 }
 
 export default UserItems;

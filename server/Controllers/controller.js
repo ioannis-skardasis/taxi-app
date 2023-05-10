@@ -8,7 +8,7 @@ let saltRounds = Number(process.env.SALT_ROUNDS);
 let jwtSecret = "process.env.JWT_SECRET";
 
 async function registerUser(req, res) {
-  console.log("Registering user...");
+  // console.log("Registering user...");
   try {
     const { name, surname, email, username, password } = req.body;
 
@@ -20,7 +20,7 @@ async function registerUser(req, res) {
       return res.send({ msg: "Username already exists" });
     } else {
       const hashedPassword = await bcrypt.hash(password, saltRounds);
-      console.log(hashedPassword);
+      
       const newUser = await User.create({
         name,
         surname,
@@ -28,7 +28,7 @@ async function registerUser(req, res) {
         username,
         password: hashedPassword,
       });
-      console.log(newUser);
+      
       const token = jwt.sign(
         { userId: newUser._id, username: newUser.username },
         process.env.TOKEN_PRIVATE_KEY
@@ -144,12 +144,15 @@ const deleteLostItem = async (req, res) => {
 
 async function addItem(req, res) {
   try {
-    const { name, description, status } = req.body;
+    const { item, description, location, carBrand, date, status } = req.body;
     const userId = req.user.userId; 
 
     const newItem = await Item.create({
-      name,
-      description,      
+      item,
+      description, 
+      location,
+      date,
+      carBrand,     
       status,
       user: userId
     });
