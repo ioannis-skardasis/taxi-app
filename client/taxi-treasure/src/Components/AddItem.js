@@ -13,7 +13,7 @@ function AddItem() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    const itemData = { item, description, location, date, carBrand,status };
+    const itemData = { item, description, location, date, carBrand, status };
     axios
       .post("http://localhost:8000/addItem", itemData, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -75,12 +75,23 @@ function AddItem() {
         </div>
         <div className="form-group">
           <label htmlFor="carBrand">Car Brand</label>
-          <MDBInput
-            type="text"
+          <select
             id="carBrand"
             value={carBrand}
             onChange={(e) => setCarBrand(e.target.value)}
-          />
+          >
+            <option value="">-- Select Car Brand --</option>
+            <option value="Opel">Opel</option>
+            <option value="Mercedes">Mercedes</option>
+            <option value="Skoda">Skoda</option>
+            <option value="Ford">Ford</option>
+            <option value="Toyota">Toyota</option>
+            <option value="Nissan">Nissan</option>
+            <option value="SEAT">SEAT</option>
+            <option value="BMW">BMW</option>
+            <option value="Fiat">Fiat</option>
+            <option value="Other">Other</option>
+          </select>
         </div>
         <div className="form-group">
           <label htmlFor="status">Status</label>

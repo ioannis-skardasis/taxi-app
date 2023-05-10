@@ -1,4 +1,4 @@
-.formcontainer {
+/* .formcontainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,7 +70,7 @@ a:hover {
 
 .form {
   padding: 20px;
-  margin-bottom: 50px; /* adjust as needed */
+  margin-bottom: 50px; 
 }
 
 h1 {
@@ -85,4 +85,4 @@ input {
 button {
   margin-top: 10px;
   margin-bottom: 10px;
-}
+} */
