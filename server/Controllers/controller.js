@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 let saltRounds = Number(process.env.SALT_ROUNDS);
-let jwtSecret = process.env.JWT_SECRET;
+let jwtSecret = "process.env.JWT_SECRET";
 
 async function registerUser(req, res) {
   console.log("Registering user...");
@@ -29,8 +29,10 @@ async function registerUser(req, res) {
         password: hashedPassword,
       });
       console.log(newUser);
-      const token = jwt.sign({ username: newUser.username }, jwtSecret);
-      console.log(token);
+      const token = jwt.sign(
+        { userId: newUser._id, username: newUser.username },
+        process.env.TOKEN_PRIVATE_KEY
+      );      
       return res.send({ msg: "Registered successfully. Welcome!", token });
     }
   } catch (error) {
@@ -40,6 +42,7 @@ async function registerUser(req, res) {
       .json({ msg: "Cannot register. Please try again later.", error });
   }
 }
+
 
 async function loginUser(req, res) {
   try {

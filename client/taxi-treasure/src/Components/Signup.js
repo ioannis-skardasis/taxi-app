@@ -11,11 +11,6 @@ function Signup(props) {
   const passwordRef = useRef();
   const isDriverRef = useRef();
   const navigate = useNavigate();
-  const token = localStorage.getItem("token");
-
-  if (token) {
-    return <Navigate to='/' />;
-  }
 
   async function createNewUser(e) {
     e.preventDefault();
@@ -27,21 +22,29 @@ function Signup(props) {
       password: passwordRef.current.value,
       isDriver: isDriverRef.current.checked,
     };
-    let response = await axios.post("http://localhost:8000/signup", newUser);
-    console.log(response);
-    // catch an error from database
-    if (response.data.msg) {
-      alert(response.data.msg);
+    try {
+      let response = await axios.post("http://localhost:8000/signup", newUser);
+      console.log(response);
+
+      if (response.data.msg) {
+        alert(response.data.msg);
+      }
+
+      if (response.data.token) {
+        localStorage.setItem("token", response.data.token);
+        props.onLogin();
+        navigate("/About");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Error creating user. Please try again later.");
     }
-    // after sign up, we log in the user
-    if (response.data.token) {
-      // save token to local storage
-      localStorage.setItem("token", response.data.token);
-      // call onLogin function passed from props
-      props.onLogin();
-      // navigate to home page
-      navigate("/About");
-    }
+  }
+
+  const token = localStorage.getItem("token");
+
+  if (token) {
+    return <Navigate to='/' />;
   }
 
   return (
@@ -52,7 +55,6 @@ function Signup(props) {
           <label htmlFor='name'></label>
           <input id='name' type='text' ref={nameRef} placeholder='Name' />
           <br />
-          <br />
           <label htmlFor='surname'></label>
           <input
             id='surname'
@@ -61,10 +63,8 @@ function Signup(props) {
             placeholder='Surname'
           />
           <br />
-          <br />
           <label htmlFor='email'></label>
           <input id='email' type='email' ref={emailRef} placeholder='Email' />
-          <br />
           <br />
           <label htmlFor='username'></label>
           <input
@@ -74,25 +74,21 @@ function Signup(props) {
             placeholder='Username'
           />
           <br />
-          <br />
           <label htmlFor='password'></label>
           <input
             id='password'
-            type='text'
+            type='password'
             ref={passwordRef}
             placeholder='Password'
           />
-          <br />
           <br />
           <label htmlFor='isDriver'></label>
           <input id='isDriver' type='checkbox' ref={isDriverRef} />
           <span>Are you a driver?</span>
           <br />
-          <br />
           <button type='submit'>
             <span>Sign Up</span>
           </button>
-          <br />
           <br />
           <span>
             Already have an account with us? Please <a href='/login'>log in</a>

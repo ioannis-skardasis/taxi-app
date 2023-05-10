@@ -5,14 +5,10 @@ import "./Login.css";
 
 function Login({ onLogin }) {
   const usernameRef = useRef();
-  const passwordRef = useRef();
+  const passwordRef = useRef(); 
   const navigate = useNavigate();
   const { state } = useLocation();
   const { from = "/About" } = state || {};
-  const token = localStorage.getItem("token");
-  if (token) {
-    return <Navigate to='/' />;
-  }
 
   async function login(e) {
     e.preventDefault();
@@ -26,10 +22,16 @@ function Login({ onLogin }) {
       return alert(response.data.msg);
     }
     if (response) {
-      localStorage.setItem("token", response.data);
-      onLogin();
+      localStorage.removeItem("token"); // Remove previous token
+      localStorage.setItem("token", response.data); // Store new token
+      onLogin(response.data); // Pass the token to onLogin
       navigate(from);
     }
+  }
+
+  const token = localStorage.getItem("token");
+  if (token) {
+    return <Navigate to='/' />;
   }
 
   return (
