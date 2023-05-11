@@ -29,21 +29,22 @@ function AllFound() {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="container">
+    <div className="container-found">
       {loading ? (
         <p>Loading...</p>
       ) : foundItems.length > 0 ? (
         <MDBContainer>
-          <div className="row">
+          <h2>Found Items</h2>
+          <div className="row-found">
             {foundItems.map((foundItem) => (
-              <div className="col-lg-4 col-md-6 col-sm-12" key={foundItem._id}>
-                <MDBCard>
+              <div className="col-lg-4 col-md-6 col-sm-12" key={foundItem._id}>                
+                <MDBCard className="card-found">
                   <MDBCardBody>
                     <MDBCardTitle>{foundItem.item}</MDBCardTitle>
-                    <MDBCardText>{foundItem.description}</MDBCardText>
-                    <MDBCardText>Location: {foundItem.location}</MDBCardText>
-                    <MDBCardText>Date: {foundItem.date}</MDBCardText>
-                    <MDBCardText>Car Brand: {foundItem.carBrand}</MDBCardText>
+                    <MDBCardText className="text-center">{foundItem.description}</MDBCardText>
+                    <MDBCardText className="text-center">Location: {foundItem.location}</MDBCardText>
+                    <MDBCardText className="text-center">Date: {foundItem.date}</MDBCardText>
+                    <MDBCardText className="text-center">Car Brand: {foundItem.carBrand}</MDBCardText>
                   </MDBCardBody>
                 </MDBCard>
               </div>
@@ -58,4 +59,3 @@ function AllFound() {
 }
 
 export default AllFound;
-

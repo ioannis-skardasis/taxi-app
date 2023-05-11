@@ -1,0 +1,59 @@
+.user-items-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+    border: 2px solid #333;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .items-list-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .lost-items-container,
+  .found-items-container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+  }
+  
+  .lost-items-title,
+  .found-items-title {
+    margin: 0;
+    text-align: center;
+  }
+  
+  .lost-items-list,
+  .found-items-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+  }
+  
+  .lost-item,
+  .found-item {
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  
+  .item-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .item-name {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  .delete-item-button {
+    margin-top: 10px;
+  }
+  

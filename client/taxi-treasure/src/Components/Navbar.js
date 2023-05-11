@@ -50,7 +50,7 @@ function Navbar(props) {
       </nav>
       <nav className='logo'>
         <img src={Logo} alt='Logo' />
-        <Link to='/'>Taxi Treasures</Link>
+        <Link to='/' id="logoTitle">Taxi Treasures</Link>
         <img id='treasure' src={Treasure} alt='Treasure' />
       </nav>
       <nav>

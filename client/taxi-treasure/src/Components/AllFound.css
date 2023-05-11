@@ -1,0 +1,54 @@
+.card-found {
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+  text-align: center; 
+}
+
+.card-found:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 2.5rem;
+}
+
+.card-text {
+  margin-bottom: 5px;
+}
+
+.row-found {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.col-lg-4 {
+  padding: 5px;
+}
+
+@media (max-width: 990px) {
+  .col-lg-4 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .col-lg-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+.card {
+  height: 300px;
+  width: 300px;
+}
+
+.card-text {
+  margin-bottom: 1.2rem;
+}

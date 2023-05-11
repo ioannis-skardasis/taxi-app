@@ -9,6 +9,7 @@ import AddItem from "./Components/AddItem";
 import AllFound from "./Components/AllFound";
 import AllLost from "./Components/AllLost";
 import UserItems from "./Components/UserItems";
+import Footer from './Components/Footer';
 import { useState } from "react";
 
 function App() {
@@ -34,8 +35,9 @@ function App() {
         <Route path='/allItems/found' element={<AllFound />} /> 
         <Route path='/allItems/lost' element={<AllLost />} /> 
         <Route path="/UserItems" element={<UserItems />} />
-        <Route path='/about' element={<About />} />
+        <Route path='/about' element={<About />} />        
       </Routes>
+      <Footer />
     </Router>
   );
 }
