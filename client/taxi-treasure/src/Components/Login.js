@@ -35,7 +35,7 @@ function Login({ onLogin }) {
   }
 
   return (
-    <div className='formcontainer'>
+    <div className='loginformcontainer'>
       <div className='form'>
         <form onSubmit={login}>
           <h1>Login</h1>
