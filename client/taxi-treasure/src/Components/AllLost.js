@@ -60,7 +60,7 @@ function AllLost() {
                     <MDBCardText className='text-center'>
                       Car Brand: {lostItem.carBrand}
                     </MDBCardText>
-                    <Link to='/mailer'>Contact</Link>
+                    {token && <Link to='/mailer'>Contact</Link>}
                   </MDBCardBody>
                 </MDBCard>
               </div>

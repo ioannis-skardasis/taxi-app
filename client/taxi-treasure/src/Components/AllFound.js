@@ -47,7 +47,7 @@ function AllFound() {
                     <MDBCardText className="text-center">Location: {foundItem.location}</MDBCardText>
                     <MDBCardText className="text-center">Date: {foundItem.date}</MDBCardText>
                     <MDBCardText className="text-center">Car Brand: {foundItem.carBrand}</MDBCardText>
-                    <Link to="/mailer">Contact</Link>
+                    {token && <Link to='/mailer'>Contact</Link>}
                   </MDBCardBody>
                 </MDBCard>
               </div>

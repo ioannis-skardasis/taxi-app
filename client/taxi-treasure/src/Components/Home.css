@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 150px;
+  margin-top: 100px;
   margin-right: 750px;
 }
 
@@ -10,9 +10,9 @@
   max-width: 800px;
 }
 
-.card-img-left {
-  width: 500px;
-  height: 300px;
+.card-img {
+  width: 450px;
+  height: 250px;
   object-fit: cover;
 }
 
@@ -21,7 +21,7 @@
 }
 
 @media (max-width: 767px) {
-  .card-img-left {
+  .card-img{
     display: none;
   }
 }
