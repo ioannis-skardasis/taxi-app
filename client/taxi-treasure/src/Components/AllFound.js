@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBContainer } from "mdb-react-ui-kit";
 import axios from "axios";
 import "./AllFound.css";
@@ -6,6 +7,7 @@ import "./AllFound.css";
 function AllFound() {
   const [foundItems, setFoundItems] = useState([]);
   const [loading, setLoading] = useState(true);
+  // const [showMailer, setShowMailer] = useState(false);  
 
   let token = localStorage.getItem("token");
 
@@ -45,6 +47,7 @@ function AllFound() {
                     <MDBCardText className="text-center">Location: {foundItem.location}</MDBCardText>
                     <MDBCardText className="text-center">Date: {foundItem.date}</MDBCardText>
                     <MDBCardText className="text-center">Car Brand: {foundItem.carBrand}</MDBCardText>
+                    <Link to="/mailer">Contact</Link>
                   </MDBCardBody>
                 </MDBCard>
               </div>

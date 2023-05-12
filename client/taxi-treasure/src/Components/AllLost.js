@@ -1,5 +1,12 @@
 import { useState, useEffect } from "react";
-import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBContainer } from "mdb-react-ui-kit";
+import { Link } from "react-router-dom";
+import {
+  MDBCard,
+  MDBCardBody,
+  MDBCardTitle,
+  MDBCardText,
+  MDBContainer,
+} from "mdb-react-ui-kit";
 import axios from "axios";
 import "./AllLost.css";
 
@@ -29,25 +36,34 @@ function AllLost() {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="container-lost">
+    <div className='container-lost'>
       {loading ? (
         <p>Loading...</p>
       ) : lostItems.length > 0 ? (
         <MDBContainer>
-           <h2>Lost Items</h2>
-          <div className="row-lost">
+          <h2>Lost Items</h2>
+          <div className='row-lost'>
             {lostItems.map((lostItem) => (
-              <div className="col-lg-4 col-md-6 col-sm-12" key={lostItem._id}>
-              <MDBCard className="card-lost">
-                <MDBCardBody>
-                  <MDBCardTitle>{lostItem.item}</MDBCardTitle>
-                  <MDBCardText className="text-center">{lostItem.description}</MDBCardText>
-                  <MDBCardText className="text-center">Location: {lostItem.location}</MDBCardText>
-                  <MDBCardText className="text-center">Date: {lostItem.date}</MDBCardText>
-                  <MDBCardText className="text-center">Car Brand: {lostItem.carBrand}</MDBCardText>
-                </MDBCardBody>
-              </MDBCard>
-            </div>
+              <div className='col-lg-4 col-md-6 col-sm-12' key={lostItem._id}>
+                <MDBCard className='card-lost'>
+                  <MDBCardBody>
+                    <MDBCardTitle>{lostItem.item}</MDBCardTitle>
+                    <MDBCardText className='text-center'>
+                      {lostItem.description}
+                    </MDBCardText>
+                    <MDBCardText className='text-center'>
+                      Location: {lostItem.location}
+                    </MDBCardText>
+                    <MDBCardText className='text-center'>
+                      Date: {lostItem.date}
+                    </MDBCardText>
+                    <MDBCardText className='text-center'>
+                      Car Brand: {lostItem.carBrand}
+                    </MDBCardText>
+                    <Link to='/mailer'>Contact</Link>
+                  </MDBCardBody>
+                </MDBCard>
+              </div>
             ))}
           </div>
         </MDBContainer>
