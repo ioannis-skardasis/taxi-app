@@ -11,6 +11,7 @@ const {
   deleteFoundItem,
   deleteLostItem,
   addItem,
+  getEmailByItemId,
 } = require("../Controllers/controller");
 const itemController = require("../Controllers/controller");
 
@@ -35,5 +36,7 @@ router.get("/allItems/lost", itemController.getAllLostItems);
 router.post("/addItem", verifyToken, addItem);
 
 router.get("/users", getUsers);
+
+router.get("/emailUsers/:id", getEmailByItemId);
 
 module.exports = router;

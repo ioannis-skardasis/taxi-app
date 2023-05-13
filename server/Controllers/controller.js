@@ -196,6 +196,21 @@ async function getUsers(req, res) {
   }
 }
 
+async function getEmailByItemId(req, res) {
+  try {
+    const { id } = req.params;
+    const item = await Item.findById(id).populate('user', 'email');
+    if (!item) {
+      return res.status(404).json({ error: 'Item not found' });
+    }
+    const { email } = item.user;
+    return res.json({ email });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Server error' });
+  }
+}
+
 module.exports = {
   registerUser,
   loginUser,
@@ -208,4 +223,5 @@ module.exports = {
   getAllFoundItems,
   getAllLostItems,
   addItem,
+  getEmailByItemId,
 };
