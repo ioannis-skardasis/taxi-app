@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   MDBCard,
   MDBCardBody,
@@ -13,7 +13,6 @@ import "./AllLost.css";
 function AllLost() {
   const [lostItems, setLostItems] = useState([]);
   const [loading, setLoading] = useState(true);
-
   let token = localStorage.getItem("token");
 
   async function getAllLostItems() {
@@ -23,6 +22,7 @@ function AllLost() {
           Authorization: `Bearer ${token}`,
         },
       });
+      console.log("Lost items: ", response.data);
       setLostItems(response.data);
       setLoading(false);
     } catch (error) {
@@ -31,36 +31,45 @@ function AllLost() {
     }
   }
 
+  const navigate = useNavigate();
+  const handleContact = (id, email) => {
+    navigate("/mailer", { state: { id: id, email: email } });
+  };
+
   useEffect(() => {
     getAllLostItems();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className='container-lost'>
+    <div className="container-lost">
       {loading ? (
         <p>Loading...</p>
       ) : lostItems.length > 0 ? (
         <MDBContainer>
           <h2>Lost Items</h2>
-          <div className='row-lost'>
+          <div className="row-lost">
             {lostItems.map((lostItem) => (
-              <div className='col-lg-4 col-md-6 col-sm-12' key={lostItem._id}>
-                <MDBCard className='card-lost'>
+              <div className="col-lg-4 col-md-6 col-sm-12" key={lostItem._id}>
+                <MDBCard className="card-lost">
                   <MDBCardBody>
                     <MDBCardTitle>{lostItem.item}</MDBCardTitle>
-                    <MDBCardText className='text-center'>
+                    <MDBCardText className="text-center">
                       {lostItem.description}
                     </MDBCardText>
-                    <MDBCardText className='text-center'>
+                    <MDBCardText className="text-center">
                       Location: {lostItem.location}
                     </MDBCardText>
-                    <MDBCardText className='text-center'>
+                    <MDBCardText className="text-center">
                       Date: {lostItem.date}
                     </MDBCardText>
-                    <MDBCardText className='text-center'>
+                    <MDBCardText className="text-center">
                       Car Brand: {lostItem.carBrand}
                     </MDBCardText>
-                    {token && <Link to='/mailer'>Contact</Link>}
+                    {token && lostItem.user && lostItem.user.email && (
+                      <button onClick={() => handleContact(lostItem._id, lostItem.user.email)}>
+                        Contact
+                      </button>
+                    )}
                   </MDBCardBody>
                 </MDBCard>
               </div>

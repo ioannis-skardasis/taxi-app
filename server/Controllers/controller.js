@@ -1,6 +1,7 @@
 const { User, Item } = require("../Model/model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const mongoose = require('mongoose');
 
 require("dotenv").config();
 
@@ -20,7 +21,7 @@ async function registerUser(req, res) {
       return res.send({ msg: "Username already exists" });
     } else {
       const hashedPassword = await bcrypt.hash(password, saltRounds);
-      
+
       const newUser = await User.create({
         name,
         surname,
@@ -28,11 +29,11 @@ async function registerUser(req, res) {
         username,
         password: hashedPassword,
       });
-      
+
       const token = jwt.sign(
         { userId: newUser._id, username: newUser.username },
         process.env.TOKEN_PRIVATE_KEY
-      );      
+      );
       return res.send({ msg: "Registered successfully. Welcome!", token });
     }
   } catch (error) {
@@ -42,7 +43,6 @@ async function registerUser(req, res) {
       .json({ msg: "Cannot register. Please try again later.", error });
   }
 }
-
 
 async function loginUser(req, res) {
   try {
@@ -107,7 +107,6 @@ async function getUserFoundItems(req, res) {
   }
 }
 
-
 const deleteFoundItem = async (req, res) => {
   try {
     const item = await Item.findById(req.params.id);
@@ -140,21 +139,19 @@ const deleteLostItem = async (req, res) => {
   }
 };
 
-
-
 async function addItem(req, res) {
   try {
     const { item, description, location, carBrand, date, status } = req.body;
-    const userId = req.user.userId; 
+    const userId = req.user.userId;
 
     const newItem = await Item.create({
       item,
-      description, 
+      description,
       location,
       date,
-      carBrand,     
+      carBrand,
       status,
-      user: userId
+      user: userId,
     });
     console.log(newItem);
     return res.send({ msg: "Item added successfully!", newItem });
@@ -196,20 +193,20 @@ async function getUsers(req, res) {
   }
 }
 
-async function getEmailByItemId(req, res) {
+const getEmailByItemId = async (req, res, next) => {
   try {
-    const { id } = req.params;
-    const item = await Item.findById(id).populate('user', 'email');
-    if (!item) {
-      return res.status(404).json({ error: 'Item not found' });
+    const item = await Item.findById(req.params.id).populate('user');
+    const user = await User.findById(item.user._id);
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({ message: 'Invalid item ID' });
     }
-    const { email } = item.user;
-    return res.json({ email });
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ error: 'Server error' });
+    const email = user.email;
+    res.json({ email });
+  } catch (err) {
+    next(err);
   }
-}
+};
+
 
 module.exports = {
   registerUser,
