@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { MDBInput, MDBBtn } from "mdb-react-ui-kit";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./AddItem.css";
 
 function AddItem() {
@@ -26,14 +28,18 @@ function AddItem() {
         setDate("");
         setCarBrand("");
         setStatus("");
+        toast.success("Item added successfully!"); 
       })
       .catch((error) => {
         console.log(error.response.data);
+        toast.error("Failed to add item."); 
       });
   }
+  
 
   return (
     <div className="formcontainer">
+       <ToastContainer />
       <form className="form" onSubmit={handleSubmit}>
         <h1>Add Item</h1>
         <div className="form-group">

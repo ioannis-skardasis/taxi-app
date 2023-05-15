@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./UserItems.css";
 
 function UserItems() {
@@ -47,9 +49,11 @@ function UserItems() {
         setLostItems((prevItems) =>
           prevItems.filter((item) => item._id !== itemId)
         );
+        toast.success("Item deleted successfully!"); 
       })
       .catch((error) => {
         console.log(error);
+        toast.error("Failed to delete item."); 
       });
   };
 
@@ -62,9 +66,11 @@ function UserItems() {
         setFoundItems((prevItems) =>
           prevItems.filter((item) => item._id !== itemId)
         );
+        toast.success("Item deleted successfully!"); 
       })
       .catch((error) => {
         console.log(error);
+        toast.error("Failed to delete item."); 
       });
   };
 
@@ -76,6 +82,7 @@ function UserItems() {
 
   return (
     <div className='user-items-container'>
+      <ToastContainer />
       <h1>{decoded ? decoded.username : null}'s Items</h1>
       {lostItems.length > 0 || foundItems.length > 0 ? (
         <div className='items-list-container'>

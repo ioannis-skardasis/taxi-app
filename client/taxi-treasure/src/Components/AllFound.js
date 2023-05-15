@@ -39,12 +39,11 @@ function AllFound() {
       setLoading(false);
     }
   }
-  
+
   const navigate = useNavigate();
   const handleContact = (id, email) => {
     navigate("/mailer", { state: { id: id, email: email } });
   };
-  
 
   useEffect(() => {
     getAllFoundItems();
@@ -76,10 +75,13 @@ function AllFound() {
                       Car Brand: {foundItem.carBrand}
                     </MDBCardText>
                     {token && email && (
-                      <button onClick={() => handleContact(foundItem._id, foundItem.user.email)}>
-                      Contact
-                    </button>
-                    
+                      <button
+                        onClick={() =>
+                          handleContact(foundItem._id, foundItem.user.email)
+                        }
+                      >
+                        Contact
+                      </button>
                     )}
                   </MDBCardBody>
                 </MDBCard>

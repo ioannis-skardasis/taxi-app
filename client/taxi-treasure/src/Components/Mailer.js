@@ -1,26 +1,20 @@
 import emailjs from "emailjs-com";
 import jwt_decode from "jwt-decode";
-import {useLocation} from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-
-
-const Mailer = () => {  
-  
+const Mailer = () => {
   const location = useLocation();
   const data = location.state;
-  const {email} = data;  
-  
-  
+  const { email } = data;
+
   let token = localStorage.getItem("token");
   const decodedToken = jwt_decode(token);
   const username = decodedToken.username;
-  
 
   function sendEmail(e) {
     e.preventDefault();
     console.log(username);
     console.log(email);
-    
 
     emailjs
       .sendForm(

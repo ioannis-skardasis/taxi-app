@@ -41,32 +41,36 @@ function AllLost() {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="container-lost">
+    <div className='container-lost'>
       {loading ? (
         <p>Loading...</p>
       ) : lostItems.length > 0 ? (
         <MDBContainer>
           <h2>Lost Items</h2>
-          <div className="row-lost">
+          <div className='row-lost'>
             {lostItems.map((lostItem) => (
-              <div className="col-lg-4 col-md-6 col-sm-12" key={lostItem._id}>
-                <MDBCard className="card-lost">
+              <div className='col-lg-4 col-md-6 col-sm-12' key={lostItem._id}>
+                <MDBCard className='card-lost'>
                   <MDBCardBody>
                     <MDBCardTitle>{lostItem.item}</MDBCardTitle>
-                    <MDBCardText className="text-center">
+                    <MDBCardText className='text-center'>
                       {lostItem.description}
                     </MDBCardText>
-                    <MDBCardText className="text-center">
+                    <MDBCardText className='text-center'>
                       Location: {lostItem.location}
                     </MDBCardText>
-                    <MDBCardText className="text-center">
+                    <MDBCardText className='text-center'>
                       Date: {lostItem.date}
                     </MDBCardText>
-                    <MDBCardText className="text-center">
+                    <MDBCardText className='text-center'>
                       Car Brand: {lostItem.carBrand}
                     </MDBCardText>
                     {token && lostItem.user && lostItem.user.email && (
-                      <button onClick={() => handleContact(lostItem._id, lostItem.user.email)}>
+                      <button
+                        onClick={() =>
+                          handleContact(lostItem._id, lostItem.user.email)
+                        }
+                      >
                         Contact
                       </button>
                     )}
