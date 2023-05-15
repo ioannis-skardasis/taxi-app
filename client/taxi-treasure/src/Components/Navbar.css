@@ -13,8 +13,7 @@
 }
 #logoTitle {
   font-size: 38px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
+  font-family: 'Notable', sans-serif;
 }
 
 .logo img {
@@ -28,7 +27,7 @@
 }
 
 #treasure {
-  width: 30px;
+  width: 40px;
 }
 
 .dropdown {
