@@ -24,8 +24,8 @@ const Mailer = () => {
 
     emailjs
       .sendForm(
-        "service_44zx28q",
-        "template_bqt69fs",
+        "service_hxxncqs",
+        "template_90j3j77",
         e.target,
         "8bMqEAmin5kA_Tm_i"
       )
