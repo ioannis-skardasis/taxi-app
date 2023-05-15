@@ -1,6 +1,8 @@
 import emailjs from "emailjs-com";
 import jwt_decode from "jwt-decode";
 import { useLocation } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Mailer = () => {
   const location = useLocation();
@@ -26,15 +28,18 @@ const Mailer = () => {
       .then(
         (result) => {
           console.log(result.text);
+          toast.success("Email sent successfully!");
         },
         (error) => {
           console.log(error.text);
+          toast.error("Failed to send email.");
         }
       );
   }
 
   return (
     <>
+      <ToastContainer />
       <h1>Contact form</h1>
       <form onSubmit={sendEmail}>
         <label htmlFor=''>name</label>
