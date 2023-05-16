@@ -17,6 +17,7 @@ import UserItems from "./Components/UserItems";
 import Footer from "./Components/Footer";
 import Mailer from "./Components/Mailer";
 import Faq from "./Components/Faq";
+import Contact from "./Components/Contact";
 import { useState } from "react";
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
         <Route path='/mailer' element={<Mailer />} />
         <Route path='/about' element={<About />} />
         <Route path='/faq' element={<Faq />} />
+        <Route path='/contact' element={<Contact />} />
       </Routes>
       <Footer />
     </Router>
