@@ -47,7 +47,7 @@ function Navbar(props) {
             <Link to='/allItems/lost'>Lost Items</Link>
             <Link to='/about'>About</Link>
             <Link to='/faq'>FAQ</Link>
-            <Link to='/contact'>Contact</Link>
+            <Link to='/contact'>Contact us</Link>
           </div>
         </div>
       </nav>
