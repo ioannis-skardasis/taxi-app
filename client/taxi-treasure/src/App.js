@@ -16,6 +16,7 @@ import AllLost from "./Components/AllLost";
 import UserItems from "./Components/UserItems";
 import Footer from "./Components/Footer";
 import Mailer from "./Components/Mailer";
+import Faq from "./Components/Faq";
 import { useState } from "react";
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
         <Route path='/UserItems' element={<UserItems />} />
         <Route path='/mailer' element={<Mailer />} />
         <Route path='/about' element={<About />} />
+        <Route path='/faq' element={<Faq />} />
       </Routes>
       <Footer />
     </Router>

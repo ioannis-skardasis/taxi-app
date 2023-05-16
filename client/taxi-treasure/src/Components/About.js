@@ -1,4 +1,4 @@
-import { MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
+import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 import taxiSign1 from "./icons/taxiSign1.png";
 import movingTaxi from "./icons/movingTaxi.png";
 import "./About.css";
@@ -28,7 +28,7 @@ function About() {
             inconvenience of a lost or forgotten item.
           </p>
           <div className="d-flex align-items-center justify-content-center">
-            <MDBIcon icon="car" size="3x" className="text-primary me-3" />
+           
             <img src={movingTaxi} alt='Taxi' className='movingTaxi img-fluid' />
           </div>
         </MDBCol>

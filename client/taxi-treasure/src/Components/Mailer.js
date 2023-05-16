@@ -3,6 +3,7 @@ import jwt_decode from "jwt-decode";
 import { useLocation } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./Mailer.css";
 
 const Mailer = () => {
   const location = useLocation();
@@ -41,14 +42,14 @@ const Mailer = () => {
     <>
       <ToastContainer />
       <h1>Contact form</h1>
-      <form onSubmit={sendEmail}>
+      <form onSubmit={sendEmail} className="mailer-form">
         <label htmlFor=''>name</label>
         <input type='text' name='name' defaultValue={username} readOnly />
         <label htmlFor=''>email</label>
-        <input type='text' name='user_email' defaultValue={email} readOnly />
+        <input type='password' name='user_email' defaultValue={email} readOnly />
         <label htmlFor=''>message</label>
         <textarea name='message' rows='4' />
-        <input type='submit' value='submit' />
+        <input type='submit' value='submit' className="submit-btn" />
       </form>
     </>
   );

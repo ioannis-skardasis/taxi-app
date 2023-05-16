@@ -1,0 +1,11 @@
+.faq-question {
+  cursor: pointer;
+  font-size: 20px;
+}
+.faq-answer{
+    font-size: 20px;
+}
+
+.faq-question:hover strong {
+  color: #d3e388;
+}

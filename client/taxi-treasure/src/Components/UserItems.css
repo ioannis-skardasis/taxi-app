@@ -4,12 +4,14 @@
   align-items: center;
   margin-top: 40px;
   padding: 20px;
+  
 }
 
 .items-list-container {
   display: flex;
   justify-content: center;
   width: 100%;
+  
 }
 
 .lost-items-container,
@@ -38,12 +40,14 @@
   padding: 10px;
   margin: 10px 0;
   border: solid 1px black;
+  background-color: #E8E2D7;
 }
 
 .item-details-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 
 .item-name {

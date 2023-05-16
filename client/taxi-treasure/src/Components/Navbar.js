@@ -45,6 +45,8 @@ function Navbar(props) {
           <div className='dropdown-content'>
             <Link to='/allItems/found'>Found Items</Link>
             <Link to='/allItems/lost'>Lost Items</Link>
+            <Link to='/about'>About</Link>
+            <Link to='/faq'>FAQ</Link>
           </div>
         </div>
       </nav>

@@ -2,23 +2,20 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 50px;
+    height: 30px;
     background-color: #f2f2f2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex;    
+    justify-content: center;    
   }
   
   .footer-text {
-    font-size: 14px;
+    font-size: 18px;
     color: #666;
+    
   }
   
-  .social-links {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 10px;
+  .social-links {   
+    padding-right: 18px;
   }
   
   .social-links a {

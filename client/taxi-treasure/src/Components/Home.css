@@ -4,6 +4,7 @@
   align-items: center;
   margin-top: 100px;
   margin-right: 750px;
+  /* font-family: 'Edu NSW ACT Foundation', cursive; */
 }
 
 .cards-container {
@@ -28,6 +29,7 @@
 
 .shadow-2-strong {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  background-color: black;
 }
 
 .display-2 {
