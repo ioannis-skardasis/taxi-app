@@ -58,19 +58,19 @@ function Navbar(props) {
       <nav>
         {loggedIn ? (
           <>
-            <Link to='/addItem'>
+            <Link to='/addItem'title="add item">
               <FaPlus />
             </Link>
-            <Link to="/UserItems">
+            <Link to="/UserItems" title="user items">
               {decoded ? decoded.username : null}
             </Link>
-            <Link onClick={logout} to='/'>
+            <Link onClick={logout} to='/' title="logout">
               <FaSignOutAlt />
             </Link>
           </>
         ) : (
           <>
-            <Link to='/login'>
+            <Link to='/login' title="login">
               <FaUser />
             </Link>
             <Link to='/signup'>Signup</Link>
