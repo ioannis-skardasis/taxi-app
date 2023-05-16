@@ -3,12 +3,14 @@ import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import EditItemForm from "./EditItemForm"; 
 import "./UserItems.css";
 
 function UserItems() {
   console.log("Rendering UserItems component...");
   const [lostItems, setLostItems] = useState([]);
   const [foundItems, setFoundItems] = useState([]);
+  const [editingItemId, setEditingItemId] = useState(null); 
   const token = localStorage.getItem("token");
   const decoded = token ? jwt_decode(token) : null;
 
@@ -49,11 +51,11 @@ function UserItems() {
         setLostItems((prevItems) =>
           prevItems.filter((item) => item._id !== itemId)
         );
-        toast.success("Item deleted successfully!"); 
+        toast.success("Item deleted successfully!");
       })
       .catch((error) => {
         console.log(error);
-        toast.error("Failed to delete item."); 
+        toast.error("Failed to delete item.");
       });
   };
 
@@ -66,12 +68,40 @@ function UserItems() {
         setFoundItems((prevItems) =>
           prevItems.filter((item) => item._id !== itemId)
         );
-        toast.success("Item deleted successfully!"); 
+        toast.success("Item deleted successfully!");
       })
       .catch((error) => {
         console.log(error);
-        toast.error("Failed to delete item."); 
+        toast.error("Failed to delete item.");
       });
+  };
+
+  const handleEditItem = (itemId) => {
+    setEditingItemId(itemId); 
+  };
+
+  const handleCancelEdit = () => {
+    setEditingItemId(null); 
+  };
+
+  const handleItemUpdate = (updatedItem) => {
+    
+    if (updatedItem.status === "lost") {
+      setLostItems((prevItems) =>
+        prevItems.map((item) =>
+          item._id === updatedItem._id ? updatedItem : item
+        )
+      );
+    } else if (updatedItem.status === "found") {
+      setFoundItems((prevItems) =>
+        prevItems.map((item) =>
+          item._id === updatedItem._id ? updatedItem : item
+        )
+      );
+    }
+    setEditingItemId(null); // Reset the editingItemId to null after successful update
+    toast.success("Item updated successfully!");
+    window.location.reload();
   };
 
   if (lostItems.length === 0 && foundItems.length === 0) {
@@ -104,6 +134,12 @@ function UserItems() {
                         </p>
                       )}
                       <button
+                        className='edit-item-button'
+                        onClick={() => handleEditItem(item._id)}
+                      >
+                        Edit
+                      </button>
+                      <button
                         className='delete-item-button'
                         onClick={() => handleDeleteLostItem(item._id)}
                       >
@@ -133,6 +169,12 @@ function UserItems() {
                         </p>
                       )}
                       <button
+                        className='edit-item-button'
+                        onClick={() => handleEditItem(item._id)}
+                      >
+                        Edit
+                      </button>
+                      <button
                         className='delete-item-button'
                         onClick={() => handleDeleteFoundItem(item._id)}
                       >
@@ -149,6 +191,13 @@ function UserItems() {
         <p>
           There are no Lost or Found items in our Database published by you.
         </p>
+      )}
+      {editingItemId && (
+        <EditItemForm
+          itemId={editingItemId}
+          onCancel={handleCancelEdit}
+          onItemUpdate={handleItemUpdate}
+        />
       )}
     </div>
   );

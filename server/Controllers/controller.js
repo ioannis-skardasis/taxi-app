@@ -163,6 +163,52 @@ async function addItem(req, res) {
   }
 }
 
+const updateItem = async (req, res) => {
+  const itemId = req.params.id;
+  const { item, description, location, date, carBrand, status } = req.body;
+
+  try {
+    const updatedItem = await Item.findByIdAndUpdate(
+      itemId,
+      {
+        item,
+        description,
+        location,
+        date,
+        carBrand,
+        status,
+      },
+      { new: true }
+    );
+
+    if (!updatedItem) {
+      return res.status(404).json({ message: "Item not found" });
+    }
+
+    res.json({ message: "Item updated successfully", item: updatedItem });
+  } catch (error) {
+    res.status(500).json({ message: "Error updating item", error: error.message });
+  }
+};
+
+
+const getItemById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const item = await Item.findById(id).populate('user');
+    
+    if (!item) {
+      return res.status(404).json({ msg: "Item not found." });
+    }
+
+    res.json(item);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ msg: "Server error." });
+  }
+};
+
+
 async function getAllFoundItems(req, res) {
   try {
     const foundItems = await Item.find({ status: "found" }).populate("user");
@@ -220,5 +266,7 @@ module.exports = {
   getAllFoundItems,
   getAllLostItems,
   addItem,
+  updateItem,
+  getItemById,
   getEmailByItemId,
 };
