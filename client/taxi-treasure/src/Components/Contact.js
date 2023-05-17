@@ -3,11 +3,23 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import jwt_decode from "jwt-decode";
 
-let token = localStorage.getItem("token");
-const decodedToken = jwt_decode(token);
-const username = decodedToken.username;
-
 function Contact() {
+  let token = localStorage.getItem("token");
+  let decodedToken = "";
+  let username = "";  
+
+  if (token) {
+    try {
+      decodedToken = jwt_decode(token);
+      username = decodedToken.username;
+    } catch (error) {
+      localStorage.removeItem("token");
+      console.log(error);
+    }
+  }
+
+
+
   function sendMessage(e) {
     e.preventDefault();
     emailjs
