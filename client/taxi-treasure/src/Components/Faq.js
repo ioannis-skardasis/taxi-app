@@ -54,7 +54,7 @@ function Faq() {
   };
 
   return (
-    <div>
+    <div className="faq-container">
       <h2>Frequently Asked Questions (FAQ)</h2>
       <br />
       <br />

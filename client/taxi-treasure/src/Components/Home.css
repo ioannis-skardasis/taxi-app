@@ -2,46 +2,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
-  margin-right: 750px;
-  /* font-family: 'Edu NSW ACT Foundation', cursive; */
-}
-
-.cards-container {
-  max-width: 800px;
-}
-
-.card-img {
-  width: 450px;
-  height: 250px;
-  object-fit: cover;
+  margin-top: 30px;
+  margin-right: 550px;
 }
 
 #moto {
   width: 600px;
 }
 
-@media (max-width: 767px) {
-  .card-img{
-    display: none;
-  }
-}
-
-.shadow-2-strong {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-  background-color: black;
-}
-
 .display-2 {
   font-size: 3.5rem;
   font-weight: bold;
 }
-
-.text-center {
-  text-align: center;
-}
-
-.mb-4 {
-  margin-bottom: 1.5rem;
-}
-
