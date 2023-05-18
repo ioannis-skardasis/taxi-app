@@ -1,0 +1,22 @@
+.contact-container{
+    margin-top: 50px;
+  display: block;
+ margin-left: 250px;
+}
+.submit-btn {
+    background-color: #f5db4a;
+    color: black;
+}
+
+.submit-btn:hover{
+    background-color: white;
+}
+
+input, textarea {
+    width: 300px;
+}
+
+#contact-noToken{
+    margin-left: 200px;
+    margin-top: 50px;
+}

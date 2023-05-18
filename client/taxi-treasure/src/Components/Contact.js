@@ -2,6 +2,9 @@ import emailjs from "emailjs-com";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import jwt_decode from "jwt-decode";
+import "./Contact.css";
+
+
 
 function Contact() {
   let token = localStorage.getItem("token");
@@ -41,12 +44,12 @@ function Contact() {
 
   if (!token) {
     return (
-      <h1>You have to log in to be able to contact us through this page.</h1>
+      <h1 id="contact-noToken">You have to log in to be able to contact us through this page.</h1>
     );
   }
 
   return (
-    <>
+    <div className='contact-container'>
       <ToastContainer />
       <h1>
         Contact us for any queries or suggestions. We will get back to you
@@ -59,7 +62,7 @@ function Contact() {
         <textarea name='message' rows='4' />
         <input type='submit' value='submit' className='submit-btn' />
       </form>
-    </>
+    </div>
   );
 }
 

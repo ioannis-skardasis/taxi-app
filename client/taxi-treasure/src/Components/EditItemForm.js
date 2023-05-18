@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import ReactModal from "react-modal";
+import "./EditItemForm.css";
 
 function EditItemForm({ itemId, onCancel, onItemUpdate }) {
   const [item, setItem] = useState({
@@ -77,8 +78,11 @@ function EditItemForm({ itemId, onCancel, onItemUpdate }) {
       }}
     >
       <div className="edit-item-form-container">
-        <h2>Edit Item</h2>
-        <form onSubmit={handleSubmit}>
+        <h2 id="edit-item-form-title">Edit Item</h2>
+        <br />
+        <br />
+        <br />
+        <form className="edit-item-form" onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="item">Item:</label>
             <input

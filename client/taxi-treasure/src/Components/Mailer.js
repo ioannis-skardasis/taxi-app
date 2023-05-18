@@ -39,7 +39,7 @@ const Mailer = () => {
   }
 
   return (
-    <>
+    <div className="mailer-container">
       <ToastContainer />
       <h1>Contact form</h1>
       <form onSubmit={sendEmail} className="mailer-form">
@@ -51,7 +51,7 @@ const Mailer = () => {
         <textarea name='message' rows='4' />
         <input type='submit' value='submit' className="submit-btn" />
       </form>
-    </>
+    </div>
   );
 };
 

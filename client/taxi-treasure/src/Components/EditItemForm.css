@@ -1,7 +1,27 @@
 #update-button{
     background-color: #f5db4a;
+    color: black;
+}
+#update-button:hover{
+    background-color: #fdfdfc;
 }
 
 #cancel-button{
     background-color: orange;
+    color: black;
 }
+#cancel-button:hover{
+    background-color: rgb(252, 251, 250);
+}
+
+.edit-item-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 340px;
+  }
