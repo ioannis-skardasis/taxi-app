@@ -3,12 +3,12 @@
 }
 .faq-question {
   cursor: pointer;
-  font-size: 20px;
+  font-size: 22px;
 }
 .faq-answer{
-    font-size: 20px;
+    font-size: 22px;
     color: #ffffff;
-    mix-blend-mode: difference;
+    mix-blend-mode: color white;
 }
 
 .faq-question:hover strong {

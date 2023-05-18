@@ -6,7 +6,7 @@ import jwt_decode from "jwt-decode";
 function Contact() {
   let token = localStorage.getItem("token");
   let decodedToken = "";
-  let username = "";  
+  let username = "";
 
   if (token) {
     try {
@@ -17,8 +17,6 @@ function Contact() {
       console.log(error);
     }
   }
-
-
 
   function sendMessage(e) {
     e.preventDefault();
@@ -41,6 +39,12 @@ function Contact() {
       );
   }
 
+  if (!token) {
+    return (
+      <h1>You have to log in to be able to contact us through this page.</h1>
+    );
+  }
+
   return (
     <>
       <ToastContainer />
@@ -60,3 +64,4 @@ function Contact() {
 }
 
 export default Contact;
+
