@@ -36,8 +36,8 @@ function Login({ onLogin }) {
 
   return (
     <div className='loginformcontainer'>
-      <div className='form'>
-        <form onSubmit={login}>
+      <div className='formLogin'>
+        <form id="formLogin" onSubmit={login}>
           <h1>Login</h1>
           <label htmlFor='username'></label>
           <input

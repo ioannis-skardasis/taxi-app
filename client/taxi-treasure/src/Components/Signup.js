@@ -48,10 +48,10 @@ function Signup(props) {
   }
 
   return (
-    <div className='formcontainer'>
-      <div className='form'>
-        <form onSubmit={createNewUser}>
-          <h1>Create account</h1>
+    <div className='formcontainerSignup'>
+      <div className='formSignup'>
+        <form id="formSignup" onSubmit={createNewUser}>
+          <h1 id="createAccount">Create account</h1>
           <label htmlFor='name'></label>
           <input id='name' type='text' ref={nameRef} placeholder='Name' />
           <br />

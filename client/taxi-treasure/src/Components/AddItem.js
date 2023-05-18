@@ -38,9 +38,9 @@ function AddItem() {
   
 
   return (
-    <div className="formcontainer">
+    <div className="formContainerAdd">
        <ToastContainer />
-      <form className="form" onSubmit={handleSubmit}>
+      <form className="formAdd" onSubmit={handleSubmit}>
         <h1>Add Item</h1>
         <div className="form-group">
           <label htmlFor="item">Item</label>
@@ -112,7 +112,7 @@ function AddItem() {
             <option value="lost">Lost</option>
           </select>
         </div>
-        <MDBBtn type="submit">Submit</MDBBtn>
+        <MDBBtn id="btnAdd" type="submit">Submit</MDBBtn>
       </form>
     </div>
   );
