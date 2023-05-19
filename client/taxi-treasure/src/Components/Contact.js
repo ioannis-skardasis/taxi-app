@@ -55,7 +55,7 @@ function Contact() {
         Contact us for any queries or suggestions. We will get back to you
         soon!.
       </h1>
-      <form onSubmit={sendMessage} className='contact-form'>
+      <form onSubmit={sendMessage} className='contactUs-form'>
         <label htmlFor=''>name</label>
         <input type='text' name='name' defaultValue={username} readOnly />
         <label htmlFor=''>message</label>
