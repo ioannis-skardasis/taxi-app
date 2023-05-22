@@ -48,3 +48,20 @@
 .submit-btn:hover {
   background-color: white;
 }
+
+@media (max-width: 900px) {
+  .mailer-container {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+
+  .mailer-form {
+    width: auto;
+  }
+
+  .mailer-form input[type="text"],
+  .mailer-form input[type="password"],
+  .mailer-form textarea {
+    width: 100%;
+  }
+}

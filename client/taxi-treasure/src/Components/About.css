@@ -1,9 +1,11 @@
-.my-5 {
-  margin-left: 180px;
-}
+@media (max-width: 768px) {
+  .my-5 {
+    margin-left: 0;
+    margin-right: 20px;
+  }
 
-p {
-  text-align: justify;
-  font-size: 22px;
-  line-height: 1.5;
+  p {
+    font-size: 18px;
+    line-height: 1.3;
+  }
 }

@@ -81,37 +81,33 @@ nav a svg {
   margin-right: 5px;
 }
 
-@media screen and (max-width: 768px) {
-  .logo {
-    font-size: 18px;
-  }
 
-  #treasure {
-    display: none;
-  }
-
-  .dropdown {
-    margin-right: auto;
-  }
-
-  .dropdown-content {
-    position: static;
-    display: flex;
+@media (max-width: 600px) {
+  .navbar {
     flex-direction: column;
-    align-items: flex-start;
-    background-color: transparent;
-    box-shadow: none;
+    padding: 20px;
   }
 
-  .dropdown-content a {
-    padding: 10px 0;
+  .logo {
+    margin-bottom: 20px;
+  }
+
+  #logoTitle {
+    font-size: 30px;
+  }
+
+  .logo img {
+    width: 30px;
+    margin-right: 10px;
   }
 
   .dropbtn {
-    margin-right: 0;
+    font-size: 24px;
+    margin-right: 10px;
   }
 
   nav a {
-    margin-right: 0;
+    font-size: 16px;
+    margin-right: 10px;
   }
 }

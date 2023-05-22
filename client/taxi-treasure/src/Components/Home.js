@@ -13,7 +13,7 @@ function Home() {
     <div className='homeContainer'>
       <div className='cards-container'>
         <MDBCardBody style={{ display: "flex", flexDirection: "row" }}>
-          <div>
+          <div className="card-text">
             <MDBCardTitle className='text-center mb-4'>
               <h1 id='moto' className='display-2'>
                 Find Your Lost Items with Our App

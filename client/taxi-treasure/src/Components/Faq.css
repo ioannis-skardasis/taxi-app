@@ -1,16 +1,29 @@
-.faq-container{
+.faq-container {
   margin-left: 100px;
 }
 .faq-question {
   cursor: pointer;
   font-size: 22px;
 }
-.faq-answer{
-    font-size: 22px;
-    color: #ffffff;
-    mix-blend-mode: color white;
+.faq-answer {
+  font-size: 22px;
+  color: #ffffff;
+  mix-blend-mode: color white;
 }
 
 .faq-question:hover strong {
   color: #ffffff;
+}
+@media (max-width: 768px) {
+  .faq-container {
+    margin-left: 20px;
+  }
+
+  .faq-question {
+    font-size: 18px;
+  }
+
+  .faq-answer {
+    font-size: 18px;
+  }
 }
