@@ -43,38 +43,47 @@ function UserItems() {
   }, [token]);
 
   const handleDeleteLostItem = (itemId) => {
-    axios
-      .delete(`http://localhost:8000/items/lost/${itemId}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then(() => {
-        setLostItems((prevItems) =>
-          prevItems.filter((item) => item._id !== itemId)
-        );
-        toast.success("Item deleted successfully!");
-      })
-      .catch((error) => {
-        console.log(error);
-        toast.error("Failed to delete item.");
-      });
+    const confirmDelete = window.confirm("Are you sure you want to delete this item?");
+  
+    if (confirmDelete) {
+      axios
+        .delete(`http://localhost:8000/items/lost/${itemId}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then(() => {
+          setLostItems((prevItems) =>
+            prevItems.filter((item) => item._id !== itemId)
+          );
+          toast.success("Item deleted successfully!");
+        })
+        .catch((error) => {
+          console.log(error);
+          toast.error("Failed to delete item.");
+        });
+    }
   };
-
+  
   const handleDeleteFoundItem = (itemId) => {
-    axios
-      .delete(`http://localhost:8000/items/found/${itemId}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then(() => {
-        setFoundItems((prevItems) =>
-          prevItems.filter((item) => item._id !== itemId)
-        );
-        toast.success("Item deleted successfully!");
-      })
-      .catch((error) => {
-        console.log(error);
-        toast.error("Failed to delete item.");
-      });
+    const confirmDelete = window.confirm("Are you sure you want to delete this item?");
+  
+    if (confirmDelete) {
+      axios
+        .delete(`http://localhost:8000/items/found/${itemId}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then(() => {
+          setFoundItems((prevItems) =>
+            prevItems.filter((item) => item._id !== itemId)
+          );
+          toast.success("Item deleted successfully!");
+        })
+        .catch((error) => {
+          console.log(error);
+          toast.error("Failed to delete item.");
+        });
+    }
   };
+  
 
   const handleEditItem = (itemId) => {
     setEditingItemId(itemId); 

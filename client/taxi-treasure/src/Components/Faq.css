@@ -1,5 +1,10 @@
 .faq-container {
   margin-left: 100px;
+  background-color: #ffffffbd;
+  border-radius: 8px;
+  width: 700px;
+  margin-top: 20px;
+  margin-left: 200px;
 }
 .faq-question {
   cursor: pointer;
@@ -7,12 +12,12 @@
 }
 .faq-answer {
   font-size: 22px;
-  color: #ffffff;
-  mix-blend-mode: color white;
+  color: #000000;
+  
 }
 
 .faq-question:hover strong {
-  color: #ffffff;
+  color: #81750a;
 }
 @media (max-width: 768px) {
   .faq-container {

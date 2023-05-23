@@ -3,6 +3,7 @@ import axios from "axios";
 import { MDBInput, MDBBtn } from "mdb-react-ui-kit";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 import "./AddItem.css";
 
 function AddItem() {
@@ -12,6 +13,7 @@ function AddItem() {
   const [date, setDate] = useState("");
   const [carBrand, setCarBrand] = useState("");
   const [status, setStatus] = useState("");
+  const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -29,6 +31,7 @@ function AddItem() {
         setCarBrand("");
         setStatus("");
         toast.success("Item added successfully!"); 
+        navigate("/userItems");;
       })
       .catch((error) => {
         console.log(error.response.data);

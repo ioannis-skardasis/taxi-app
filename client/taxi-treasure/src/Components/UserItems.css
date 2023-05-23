@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   margin-top: 40px;
-  padding: 20px;  
+  padding: 20px;
   border-radius: 10px;
 }
 
@@ -11,21 +11,19 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  
 }
 
 .lost-items-container,
 .found-items-container {
   display: flex;
-  margin: 10px;
- 
+  flex-direction: row-reverse;
+  margin: 0px 200px;
 }
 
 .lost-items-title,
 .found-items-title {
   margin: 0;
   text-align: left;
-  
 }
 
 .lost-items-list,
@@ -41,14 +39,13 @@
   padding: 10px;
   margin: 10px 0;
   border: solid 1px black;
-  background-color: #E8E2D7;
+  background-color: #e8e2d7;
 }
 
 .item-details-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 }
 
 .item-name {
@@ -61,7 +58,16 @@
   background-color: #f5894a;
 }
 
-.edit-item-button{
+.edit-item-button {
   margin-top: 10px;
   background-color: #f5db4a;
+}
+
+@media (max-width: 768px) {
+  .lost-items-container,
+  .found-items-container {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 0px 80px;
+  }
 }

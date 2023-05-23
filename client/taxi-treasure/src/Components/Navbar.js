@@ -43,17 +43,17 @@ function Navbar(props) {
             <FontAwesomeIcon icon={faBars} />
           </button>
           <div className='dropdown-content'>
-            <Link to='/allItems/found'>Found Items</Link>
-            <Link to='/allItems/lost'>Lost Items</Link>
-            <Link to='/about'>About</Link>
-            <Link to='/faq'>FAQ</Link>
-            <Link to='/contact'>Contact us</Link>
+            <Link to='/allItems/found' id="a">Found Items</Link>
+            <Link to='/allItems/lost' id="a">Lost Items</Link>
+            <Link to='/about' id="a">About</Link>
+            <Link to='/faq' id="a">FAQ</Link>
+            <Link to='/contact' id="a">Contact us</Link>
           </div>
         </div>
       </nav>
       <nav className='logo'>
         <img src={Logo} alt='Logo' />
-        <Link to='/' id="logoTitle">Taxi Treasures</Link>
+        <Link to='/' id="logoTitle" title="Home">Taxi Treasures</Link>
         <img id='treasure' src={Treasure} alt='Treasure' />
       </nav>
       <nav>
