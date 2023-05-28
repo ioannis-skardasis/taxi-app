@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  
-  MDBCardBody,
-  MDBCardTitle,
-  MDBCardText,
-} from "mdb-react-ui-kit";
+import { MDBCardBody, MDBCardTitle, MDBCardText } from "mdb-react-ui-kit";
 
 import "./Home.css";
 
@@ -13,8 +8,9 @@ function Home() {
     <div className='homeContainer'>
       <div className='cards-container'>
         <MDBCardBody style={{ display: "flex", flexDirection: "row" }}>
-          <div className="card-text">
+          <div className='card-text'>
             <MDBCardTitle className='text-center mb-4'>
+              <h1 id="title" className="display-2">Taxi Treasures</h1>
               <h1 id='moto' className='display-2'>
                 Find Your Lost Items with Our App
               </h1>

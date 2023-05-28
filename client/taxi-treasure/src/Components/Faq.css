@@ -1,23 +1,24 @@
 .faq-container {
   margin-left: 100px;
-  background-color: #ffffffbd;
+  background-color: #2d567c91;
   border-radius: 8px;
-  width: 700px;
-  margin-top: 20px;
-  margin-left: 200px;
+  width: 750px;
+  margin-top: 60px;
+  margin-left: 200px; 
+  color: black; 
 }
 .faq-question {
   cursor: pointer;
-  font-size: 22px;
+  font-size: 24px;
 }
 .faq-answer {
-  font-size: 22px;
-  color: #000000;
+  font-size: 24px;
+  color: white;
   
 }
 
 .faq-question:hover strong {
-  color: #81750a;
+  color: #810a4f;
 }
 @media (max-width: 768px) {
   .faq-container {

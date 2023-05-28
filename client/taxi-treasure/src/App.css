@@ -1,14 +1,10 @@
 body {
   font-family: "Edu NSW ACT Foundation", cursive;
-  background-image: url("./Components/icons/background2.png");
+  background-image: url("./Components/icons/back5.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover;  
+  color: white;
+  /* background-color: #a8a764; 
+  background-blend-mode:luminosity;  */
 }
 
-@media (max-width: 900px) {
-  body {
-    background-image: url("./Components/icons/background3.png");
-    background-repeat: repeat;
-    background-size: cover;
-  }
-}

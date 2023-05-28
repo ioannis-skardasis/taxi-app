@@ -2,11 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import { FaPlus, FaUser, FaSignOutAlt } from "react-icons/fa";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import Logo from "../Components/icons/taxi.png";
-import Treasure from "../Components/icons/treasure-chest.png";
-
 import "./Navbar.css";
 
 function Navbar(props) {
@@ -37,47 +32,50 @@ function Navbar(props) {
 
   return (
     <div className='navbar'>
-      <nav>
-        <div className='dropdown'>
-          <button className='dropbtn'>
-            <FontAwesomeIcon icon={faBars} />
-          </button>
-          <div className='dropdown-content'>
-            <Link to='/allItems/found' id="a">Found Items</Link>
-            <Link to='/allItems/lost' id="a">Lost Items</Link>
-            <Link to='/about' id="a">About</Link>
-            <Link to='/faq' id="a">FAQ</Link>
-            <Link to='/contact' id="a">Contact us</Link>
-          </div>
-        </div>
-      </nav>
-      <nav className='logo'>
-        <img src={Logo} alt='Logo' />
-        <Link to='/' id="logoTitle" title="Home">Taxi Treasures</Link>
-        <img id='treasure' src={Treasure} alt='Treasure' />
+      <nav className='nav-links'>
+        <Link to='/home' className='nav-link'>
+          Home
+        </Link>
+        <Link to='/allItems/found' className='nav-link'>
+          Found Items
+        </Link>
+        <Link to='/allItems/lost' className='nav-link'>
+          Lost Items
+        </Link>
+        <Link to='/about' className='nav-link'>
+          About
+        </Link>
+        <Link to='/faq' className='nav-link'>
+          FAQ
+        </Link>
+        <Link to='/contact' className='nav-link'>
+          Contact us
+        </Link>
       </nav>
       <nav>
         {loggedIn ? (
           <>
-            <Link to='/addItem'title="add item">
+            <Link to='/addItem' className='nav-link' title='Add Item'>
               <FaPlus />
             </Link>
-            <Link to="/UserItems" title="user items">
+            <Link to='/UserItems' className='nav-link' title='User Items'>
               {decoded ? decoded.username : null}
             </Link>
-            <Link onClick={logout} to='/' title="logout">
+            <Link onClick={logout} to='/' className='nav-link' title='Logout'>
               <FaSignOutAlt />
             </Link>
           </>
         ) : (
           <>
-            <Link to='/login' title="login">
+            <Link to='/login' className='nav-link' title='Login'>
               <FaUser />
             </Link>
-            <Link to='/signup'>Signup</Link>
+            <Link to='/signup' className='nav-link'>
+              Signup
+            </Link>
           </>
         )}
-      </nav>      
+      </nav>
     </div>
   );
 }

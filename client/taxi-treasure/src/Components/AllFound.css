@@ -4,6 +4,7 @@
   transition: all 0.2s ease-in-out;
   text-align: center; 
   background-color: #e8e2d7;
+  color: black;
 }
 
 .card-found:hover {

@@ -4,6 +4,7 @@
   transition: all 0.2s ease-in-out;
   text-align: center;
   background-color: #E8E2D7;
+  color:black;
 }
 
 .card-lost:hover {
