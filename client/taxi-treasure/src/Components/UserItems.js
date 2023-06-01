@@ -94,7 +94,6 @@ function UserItems() {
   };
 
   const handleItemUpdate = (updatedItem) => {
-    
     if (updatedItem.status === "lost") {
       setLostItems((prevItems) =>
         prevItems.map((item) =>
@@ -110,8 +109,8 @@ function UserItems() {
     }
     setEditingItemId(null); // Reset the editingItemId to null after successful update
     toast.success("Item updated successfully!");
-    window.location.reload();
   };
+  
 
   if (lostItems.length === 0 && foundItems.length === 0) {
     return (

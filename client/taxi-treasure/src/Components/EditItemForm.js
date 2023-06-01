@@ -32,26 +32,30 @@ function EditItemForm({ itemId, onCancel, onItemUpdate }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+  
     const token = localStorage.getItem("token");
-
+  
     const headers = {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
     };
-
+  
     axios
       .put(`https://taxi-treasures.onrender.com/updateItem/${itemId}`, item, { headers })
       .then((response) => {
         const updatedItem = response.data;
-        onItemUpdate(updatedItem);
+        onItemUpdate(updatedItem); // Pass the updated item to the parent component
+        closeModal(); 
         // toast.success("Item updated successfully!");
+        window.location.reload();
+        
       })
       .catch((error) => {
         console.log(error);
         toast.error("Failed to update item.");
       });
   };
+  
 
   const closeModal = () => {
     onCancel(); 
