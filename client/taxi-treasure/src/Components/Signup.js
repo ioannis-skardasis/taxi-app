@@ -23,7 +23,7 @@ function Signup(props) {
       isDriver: isDriverRef.current.checked,
     };
     try {
-      let response = await axios.post("http://localhost:8000/signup", newUser);
+      let response = await axios.post("https://taxi-treasures.onrender.com/signup", newUser);
       console.log(response);
 
       if (response.data.msg) {

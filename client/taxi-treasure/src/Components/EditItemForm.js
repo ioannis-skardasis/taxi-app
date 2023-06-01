@@ -15,7 +15,7 @@ function EditItemForm({ itemId, onCancel, onItemUpdate }) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/getItem/${itemId}`)
+      .get(`https://taxi-treasures.onrender.com/getItem/${itemId}`)
       .then((response) => {
         const fetchedItem = response.data;
         setItem(fetchedItem);
@@ -41,7 +41,7 @@ function EditItemForm({ itemId, onCancel, onItemUpdate }) {
     };
 
     axios
-      .put(`http://localhost:8000/updateItem/${itemId}`, item, { headers })
+      .put(`https://taxi-treasures.onrender.com/updateItem/${itemId}`, item, { headers })
       .then((response) => {
         const updatedItem = response.data;
         onItemUpdate(updatedItem);

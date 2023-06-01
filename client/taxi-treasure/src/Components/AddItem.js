@@ -19,7 +19,7 @@ function AddItem() {
     e.preventDefault();
     const itemData = { item, description, location, date, carBrand, status };
     axios
-      .post("http://localhost:8000/addItem", itemData, {
+      .post("https://taxi-treasures.onrender.com/addItem", itemData, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       })
       .then((response) => {

@@ -20,7 +20,7 @@ function AllFound() {
 
   async function getAllFoundItems() {
     try {
-      let response = await axios.get("http://localhost:8000/allItems/found", {
+      let response = await axios.get("hhttps://taxi-treasures.onrender.com/allItems/found", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

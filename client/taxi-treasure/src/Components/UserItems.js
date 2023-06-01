@@ -20,7 +20,7 @@ function UserItems() {
     }
 
     axios
-      .get("http://localhost:8000/items/lost", {
+      .get("https://taxi-treasures.onrender.com/items/lost", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
@@ -31,7 +31,7 @@ function UserItems() {
       });
 
     axios
-      .get("http://localhost:8000/items/found", {
+      .get("https://taxi-treasures.onrender.com/items/found", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
@@ -47,7 +47,7 @@ function UserItems() {
   
     if (confirmDelete) {
       axios
-        .delete(`http://localhost:8000/items/lost/${itemId}`, {
+        .delete(`https://taxi-treasures.onrender.com/items/lost/${itemId}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then(() => {
@@ -68,7 +68,7 @@ function UserItems() {
   
     if (confirmDelete) {
       axios
-        .delete(`http://localhost:8000/items/found/${itemId}`, {
+        .delete(`https://taxi-treasures.onrender.com/items/found/${itemId}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then(() => {

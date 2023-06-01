@@ -17,7 +17,7 @@ function AllLost() {
 
   async function getAllLostItems() {
     try {
-      let response = await axios.get("http://localhost:8000/allItems/lost", {
+      let response = await axios.get("https://taxi-treasures.onrender.com/allItems/lost", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
