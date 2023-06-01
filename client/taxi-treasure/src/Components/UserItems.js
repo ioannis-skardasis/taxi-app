@@ -107,7 +107,7 @@ function UserItems() {
         )
       );
     }
-    setEditingItemId(null); // Reset the editingItemId to null after successful update
+    // setEditingItemId(null); 
     toast.success("Item updated successfully!");
   };
   

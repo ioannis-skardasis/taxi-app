@@ -45,10 +45,9 @@ function EditItemForm({ itemId, onCancel, onItemUpdate }) {
       .then((response) => {
         const updatedItem = response.data;
         onItemUpdate(updatedItem); // Pass the updated item to the parent component
-        closeModal(); 
-        // toast.success("Item updated successfully!");
         window.location.reload();
-        
+        closeModal(); 
+        // toast.success("Item updated successfully!");                
       })
       .catch((error) => {
         console.log(error);
