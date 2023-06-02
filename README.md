@@ -1,6 +1,3 @@
-# Taxi-Treasure
-# taxi-app
-taxi-app
 
 # Taxi-Treasures
 
@@ -73,10 +70,5 @@ Taxi-Treasures is licensed under the [MIT License](https://opensource.org/licens
 
 If you have any questions, feedback, or issues regarding Taxi-Treasures, please contact the project maintainer at taxi.treasures@gmail.com.
 
-<<<<<<< HEAD
-=======
-=======
-
->>>>>>> 15366d03b35c5c48cdf525f9c7957b1b1e26069a
 We hope Taxi-Treasures proves to be a valuable tool for reuniting people with their lost belongings inside taxi cabs. Happy treasure hunting!
 
