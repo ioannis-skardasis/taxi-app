@@ -1,10 +1,11 @@
 .mb-4 {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: bold;
-  line-height: 1.9;
+  line-height: 2;
   background-color: transparent;
   border-radius: 5px;
   color: black;  
+  margin-left: 90px;
 }
 
 @media (max-width: 900px) {
