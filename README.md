@@ -3,6 +3,8 @@
 
 Welcome to Taxi-Treasures! This web app provides a platform for connecting people who have lost or found items inside taxi cabs. Whether you accidentally left something behind or discovered an item left by someone else, Taxi-Treasures allows you to publish and search for lost and found items. Through this app, users can communicate with each other and arrange the return of lost belongings.
 
+![image](https://github.com/ioannis-skardasis/taxi-app/assets/117116875/c7542c46-fe7c-484d-8e55-e25a35f0a2a8)
+
 ## Features
 
 - **Publish Lost Items**: If you have lost something inside a taxi cab, you can publish the details of the lost item using Taxi-Treasures. This includes providing a description, relevant information, and contact details.
