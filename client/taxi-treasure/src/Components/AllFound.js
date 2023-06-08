@@ -9,6 +9,7 @@ import {
 } from "mdb-react-ui-kit";
 import axios from "axios";
 import "./AllFound.css";
+import { LoadingSpinner } from "./LoadingSpinner";
 // import Mailer from "./Mailer";
 
 function AllFound() {
@@ -52,7 +53,7 @@ function AllFound() {
   return (
     <div className='container-found'>
       {loading ? (
-        <p>Loading...</p>
+        <LoadingSpinner />
       ) : foundItems.length > 0 ? (
         <MDBContainer>
           <h2>Found Items</h2>

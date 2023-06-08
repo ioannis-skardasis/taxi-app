@@ -8,6 +8,7 @@ import {
   MDBContainer,
 } from "mdb-react-ui-kit";
 import axios from "axios";
+import { LoadingSpinner } from "./LoadingSpinner";
 import "./AllLost.css";
 
 function AllLost() {
@@ -43,7 +44,7 @@ function AllLost() {
   return (
     <div className='container-lost'>
       {loading ? (
-        <p>Loading...</p>
+        <LoadingSpinner />
       ) : lostItems.length > 0 ? (
         <MDBContainer>
           <h2>Lost Items</h2>
